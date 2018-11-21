@@ -1,2 +1,3 @@
 # scripts
-A couple of (hopefully) usefull scripts
+A couple of (hopefully) useful scripts
+
