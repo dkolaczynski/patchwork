@@ -2,6 +2,7 @@
 
 
 packages="
+	curl
 	gimp
 	git
 	htop

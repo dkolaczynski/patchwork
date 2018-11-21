@@ -1,0 +1,9 @@
+* Alerter
+Java-11-ready alert with JavaFX
+
+** Compile
+=$ javac --module-path ./javafx-sdk-11.0.1/lib --add-modules=javafx.controls Alerter.java=
+
+** Run
+=$ java --module-path ./javafx-sdk-11.0.1/lib --add-modules=javafx.controls Alerter --title="Example" --content="Hello world!"=
+
