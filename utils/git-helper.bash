@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 git config --global user.name 'Damian Kołaczyński'
 echo "Git property 'user.name' set to: $(git config --global user.name)"
