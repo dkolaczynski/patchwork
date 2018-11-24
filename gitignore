@@ -1,6 +1,10 @@
 # Java
 *.class
 
+# IntelliJ IDEA
+.idea/
+*.iml
+
 # Archives
 *.zip
 
