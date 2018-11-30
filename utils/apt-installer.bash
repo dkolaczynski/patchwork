@@ -5,9 +5,11 @@ packages="
 	curl
 	gimp
 	git
+	hardinfo
 	htop
 	`# contains inotifywait`
 	inotify-tools
+	mc
 	shutter
 	tree
 	"
