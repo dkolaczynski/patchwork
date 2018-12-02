@@ -5,6 +5,7 @@ packages="
 	curl
 	gimp
 	git
+	gitk
 	hardinfo
 	htop
 	`# contains inotifywait`
