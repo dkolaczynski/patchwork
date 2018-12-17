@@ -11,6 +11,7 @@ packages="
 	`# contains inotifywait`
 	inotify-tools
 	mc
+	meld
 	shutter
 	tree
 	"
