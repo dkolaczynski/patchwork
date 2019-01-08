@@ -6,6 +6,7 @@ packages="
 	gimp
 	git
 	gitk
+	gparted
 	hardinfo
 	htop
 	`# contains inotifywait`
