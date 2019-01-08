@@ -1,3 +1,19 @@
-* Commands
+* Less
 
-- =g= / =G= :: go to beginning/end of the file
+** Commands
+
+- =F= :: follow mode (similar to =tail -f=; press =Ctrl+C= to interrupt)
+- =g= / =G= :: go to beginning / end of the file
+- =v= :: edit the file
+
+*** Searching
+
+- =/pattern= :: search forward (press =Ctrl+R= before entering the pattern for plain text searching)
+- =?pattern= :: search backward
+- =&pattern= :: display only lines which matches the pattern (press =!= before entering the pattern to negate)
+- =n= / =N= :: find next / previous occurrence
+
+** Options
+
+- =-I= :: ignore case during search
+- =-N= :: display line numbers
