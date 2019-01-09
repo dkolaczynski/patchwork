@@ -1,14 +1,17 @@
-# Java
-*.class
+# Archives
+*.zip
+
+# Emacs
+\#*\#
 
 # IntelliJ IDEA
 .idea/
 *.iml
 
-# Archives
-*.zip
+# Java
+*.class
 
 # Jekyll
-_site
+_site/
 .sass-cache
 .jekyll-metadata
