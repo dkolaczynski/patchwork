@@ -3,17 +3,28 @@
 ** Commands
 
 - =F= :: follow mode (similar to =tail -f=; press =Ctrl+C= to interrupt)
-- =g= / =G= :: go to beginning / end of the file
+- =q= :: exit less
 - =v= :: edit the file
+- =Ctrl+G= :: display information about the file
+
+*** Navigation
+
+- =j= / =k= :: scroll one line forward / backward
+- =Ctrl+F= / =Ctrl+B= :: scroll one window forward / backward
+- =g= / =G= :: go to beginning / end of the file
 
 *** Searching
 
 - =/pattern= :: search forward (press =Ctrl+R= before entering the pattern for plain text searching)
 - =?pattern= :: search backward
-- =&pattern= :: display only lines which matches the pattern (press =!= before entering the pattern to negate)
+- =&pattern= :: display only matching lines (enter =!= before the pattern for the opposite effect)
 - =n= / =N= :: find next / previous occurrence
+- =ESC= then =u= :: turn off highlighting of the current search pattern
 
 ** Options
 
+Options can be specified while launching =less= as well as when the command is running
+
 - =-I= :: ignore case during search
 - =-N= :: display line numbers
+- =-ppattern= :: start at the first occurrence of pattern
