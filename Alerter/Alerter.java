@@ -19,4 +19,3 @@ public class Alerter extends Application {
 	}
 
 }
-
