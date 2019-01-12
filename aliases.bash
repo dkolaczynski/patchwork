@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # Move up in directory tree
 #
 # $ cd /usr/local/bin/; pwd
@@ -73,4 +72,3 @@ alias q='exit'
 function __mkcd() {
 	mkdir --parents "$1" && cd "$_"
 }
-

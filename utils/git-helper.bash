@@ -9,4 +9,3 @@ echo "Git property 'user.email' set to: $(git config --global user.email)"
 # Refer to "Connecting to GitHub with SSH" at GitHub Help:
 # https://help.github.com/articles/connecting-to-github-with-ssh/
 echo "Please remember to generate SSH key and add it to GitHub account!"
-

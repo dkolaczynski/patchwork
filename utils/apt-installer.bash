@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 packages="
 	curl
 	gimp
@@ -17,5 +16,4 @@ packages="
 	tree
 	"
 
-sudo apt update && sudo apt install $packages
-
+sudo apt update && sudo apt install ${packages}

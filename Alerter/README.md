@@ -3,7 +3,7 @@ A simple alert which uses Java 11
 
 ## Requirements
 - Java 11
-- JavaFX SDK 11, which can be downloaded via utility script: `$ ./install.sh`
+- JavaFX SDK 11, which can be downloaded via utility script: `$ ./install.bash`
 
 ## Compilation
 `$ javac --module-path ./javafx-sdk-11.0.1/lib --add-modules=javafx.controls Alerter.java`
