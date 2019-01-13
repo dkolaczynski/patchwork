@@ -8,10 +8,10 @@ import sys
 
 
 def parse_arguments(parser):
-	parser.add_argument('-c', '--configuration-file', default='tabber.conf', metavar='NAME',
+	parser.add_argument('-c', '--config-file', default='tabber.conf', metavar='NAME',
 						help='name of configuration file (script looks for the file in its own directory)')
-	parser.add_argument('-p', '--print-command', action='store_true', default=False,
-						help='print command instead of launching it')
+	parser.add_argument('-p', '--print-args', action='store_true', default=False,
+						help='print arguments instead of launching the command')
 
 	return parser.parse_args()
 
@@ -54,21 +54,21 @@ def build_terminal_command(configuration):
 		if 'title' in entry:
 			result.extend(['-t', entry['title']])
 
-		result.extend(['-e', '"bash -c \\"{0}\\""'.format(entry['command'])])
+		result.extend(['-e', 'bash -c "{0}"'.format(entry['command'])])
 
 	return result
 
 
 def main():
 	args = parse_arguments(argparse.ArgumentParser(description='Launch terminal with multiple tabs'))
-	configuration_path = resolve_configuration_path(args.configuration_file)
+	configuration_path = resolve_configuration_path(args.config_file)
 	configuration = load_configuration(configuration_path)
 	terminal = build_terminal_command(configuration)
 
-	if args.print_command:
-		print(' '.join(terminal))
+	if args.print_args:
+		print(terminal)
 	else:
-		subprocess.call(terminal)
+		subprocess.run(terminal)
 
 
 if __name__ == '__main__':
