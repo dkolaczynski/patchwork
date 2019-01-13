@@ -10,6 +10,8 @@ packages="
 	htop
 	`# contains inotifywait`
 	inotify-tools
+	`# contains xmllint`
+	libxml2-utils
 	mc
 	meld
 	shutter
