@@ -1,3 +1,3 @@
-# scripts
-A couple of (hopefully) useful scripts
+# patchwork
 
+A collection of (hopefully) handy utilities
