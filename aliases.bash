@@ -27,24 +27,6 @@ alias mkcd='__mkcd'
 #   /tmp
 alias reenter='cd $(pwd)'
 
-# Print current date in ISO 8601 format
-#
-# $ isodate
-#   2015-11-25
-alias isodate='date +"%Y-%m-%d"'
-
-# Print current Unix time
-#
-# $ timestamp
-#   1464803972
-alias timestamp='date +%s'
-
-# Print current Unix time in milliseconds
-#
-# $ timestamp-in-millis
-#   1464804252133
-alias timestamp-in-millis='date +%s%3N'
-
 # Print multiline $PATH splitted by colon
 #
 # $ path
