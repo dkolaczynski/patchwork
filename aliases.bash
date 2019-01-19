@@ -6,10 +6,10 @@
 #   /usr/local/bin
 # $ ...; pwd
 #   /usr
-alias up='../'
-alias ..='../'
-alias ...='../../'
-alias ....='../../../'
+alias up='cd ../'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 
 # Make directory (with parents) and enter it
 #
