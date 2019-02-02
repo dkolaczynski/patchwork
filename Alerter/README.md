@@ -1,15 +1,12 @@
 # Alerter
-A simple alert which uses Java 11
+A simple dialog box with JavaFX (version 11)
 
 ## Requirements
-- Java 11
-- JavaFX SDK 11, which can be downloaded via utility script: `$ ./install.bash`
+- Java SE Development Kit (tested on 11.0.1)
+- Apache Maven (tested on 3.6.0)
 
-## Compilation
-`$ javac --module-path ./javafx-sdk-11.0.1/lib --add-modules=javafx.controls Alerter.java`
+## Building
+`$ mvn clean package`
 
-## Usage
-```
-$ java --module-path ./javafx-sdk-11.0.1/lib --add-modules=javafx.controls Alerter \
---title="Example" --content="Hello world!"
-```
+## Running
+`$ java -jar ./target/alerter-1.0.1-jar-with-dependencies.jar --title="Message" --content="Hello World!"`
