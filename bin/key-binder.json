@@ -1,0 +1,7 @@
+[
+	{
+		"name": "Run Calculator",
+		"command": "gnome-calculator",
+		"binding": "<Super>C"
+	}
+]
