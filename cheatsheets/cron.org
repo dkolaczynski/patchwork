@@ -1,0 +1,43 @@
+* Cron
+
+** Format
+
+#+BEGIN_EXAMPLE
+              * * * * * command
+       minute_| | | | |
+         hour___| | | |
+ day of month_____| | |
+        month_______| |
+  day of week_________|
+
+#+END_EXAMPLE
+
+*** Other Formats
+
+There are libraries like Spring Framwework or Quartz, which uses 6 or even 7 fields in their expressions:
+
+#+BEGIN_EXAMPLE
+
+          * * * * * * [*] command
+  second _|            |
+    year_______________|
+
+#+END_EXAMPLE
+
+** Special expressions
+
+TODO
+
+** Crontab
+
+- =-u {USER}= :: execute as specific user
+- =-l= :: show current crontab
+- =-e= :: edit current crontab
+
+** Examples
+
+Run every 10 minutes
+
+Run 1st day of month
+
+run every sunday at 4 am
