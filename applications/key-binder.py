@@ -5,11 +5,11 @@ import json
 import subprocess
 
 # TODO
-# - [TEST] Empty list of custom keybindings
 # - [FEATURE] Option for clearing custom keybindings
 # - [FEATURE] Option to replace custom settings (by default it should append them)
 # - [FEATURE] Option to dump existing custom keybindings
 # - [FEATURE] Option for validation of configuration file
+# - https://lazka.github.io/pgi-docs/#Gio-2.0/classes/Settings.html
 
 MEDIA_KEYS_SCHEMA = 'org.gnome.settings-daemon.plugins.media-keys'
 CUSTOM_KEYBINDINGS_KEY = 'custom-keybindings'
@@ -28,7 +28,7 @@ def get_from_gsettings(schema, key):
 
 
 def set_in_gsettings(schema, key, value):
-	_run_gsettings('set', schema, key, value)
+	_run_gsettings('set ', schema, key, value)
 
 
 def _run_gsettings(*args):
@@ -39,7 +39,7 @@ def _run_gsettings(*args):
 
 def get_existing_custom_keybindings():
 	command_result = get_from_gsettings(MEDIA_KEYS_SCHEMA, CUSTOM_KEYBINDINGS_KEY)
-	return ast.literal_eval(command_result)
+	return [] if command_result.startswith('@as []') else ast.literal_eval(command_result)
 
 
 def load_configuration():
