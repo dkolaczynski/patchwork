@@ -18,7 +18,7 @@ def print_error(message):
 
 
 def main():
-	args = parse_arguments(argparse.ArgumentParser(description='Make symbolic link to a file'))
+	args = parse_arguments(argparse.ArgumentParser(description='Create absolute symbolic link to a file'))
 	source = os.path.abspath(args.source)
 	destination = os.path.abspath(args.destination)
 
@@ -30,7 +30,7 @@ def main():
 				os.unlink(destination)
 				os.symlink(source, destination)
 			else:
-				print_error('Failed to remove file "{0}": it\'s not a symbolic link'.format(destination))
+				print_error('Failed to remove file "{0}": it is not a symbolic link'.format(destination))
 		else:  # force flag was not specified
 			print_error('Failed to create symbolic link "{0}": file exists'.format(destination))
 

@@ -31,8 +31,8 @@ def prepare_timestamp(timestamp, in_millis=False):
 
 def main():
 	args = parse_arguments(argparse.ArgumentParser(description='''
-		Print date and/or time related value for given argument. If none of arguments is specified, it will print
-		all values in the same order as they are specified in help.'''))
+		Print current date and/or time related value for given argument. If none of arguments is specified,
+		it will print all values in the same order as they are listed in help.'''))
 
 	timestamp = time.time()
 

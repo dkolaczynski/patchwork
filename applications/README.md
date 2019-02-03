@@ -1,22 +1,33 @@
-# bin
+# applications
 
-A set of ready to use scripts.
+A set of programs for various purposes written in Java/Python
 
-## Scripts
+## now.py
 
-### now.py
+Print current date and/or time related value for given argument.
 
-Print date and/or time related value for given argument.
+```
+$ now.py -D
+  2019-02-03T16:06:19
+```
 
 Type `$ ./now.py -h` to display full help.
 
-### symlinker.py
+## symlinker.py
 
-Make symbolic link to a file.
+Create absolute symbolic link to a file.
+
+Difference between `ln -s` and `symlinker.py`:
+```
+$ ln -s ./foo bar; ls -og | grep bar
+  lrwxrwxrwx 1      5 Feb  3 15:44 bar -> ./foo
+$ symlinker.py ./foo bar; ls -og | grep bar
+  lrwxrwxrwx 1      8 Feb  3 15:45 bar -> /tmp/foo
+```
 
 Type `$ ./symlinker.py -h` to display full help.
 
-### tabber.py
+## tabber.py
 
 Launch terminal with multiple tabs.
 
