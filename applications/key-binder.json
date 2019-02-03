@@ -3,5 +3,10 @@
 		"name": "Run Calculator",
 		"command": "gnome-calculator",
 		"binding": "<Super>C"
+	},
+	{
+		"name": "Run gedit",
+		"command": "gedit",
+		"binding": "<Super>G"
 	}
 ]
