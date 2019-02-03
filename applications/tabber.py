@@ -6,6 +6,10 @@ import os
 import subprocess
 import sys
 
+# TODO:
+# - change configuration to JSON
+# - remove configuration file restriction to be in the same directory
+# - use common Python module
 
 def parse_arguments(parser):
 	parser.add_argument('-c', '--config-file', default='tabber.conf', metavar='NAME',
