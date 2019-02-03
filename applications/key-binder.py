@@ -3,32 +3,34 @@
 import ast
 import json
 import subprocess
+from enum import Enum
 
 # TODO
-# - [FEATURE] Option for clearing custom keybindings
-# - [FEATURE] Option to replace custom settings (by default it should append them)
-# - [FEATURE] Option to dump existing custom keybindings
-# - [FEATURE] Option for validation of configuration file
+# - [FEATURE] Option for clearing custom keybindings: -c clear
+# - [FEATURE] Option to replace custom settings (by default it should append them):  -o overwrite, -a append
+# - [FEATURE] Option to dump existing custom keybindings: -d dump
+# - [FEATURE] Option for validation of configuration file: -t test
 # - https://lazka.github.io/pgi-docs/#Gio-2.0/classes/Settings.html
 
 MEDIA_KEYS_SCHEMA = 'org.gnome.settings-daemon.plugins.media-keys'
-CUSTOM_KEYBINDINGS_KEY = 'custom-keybindings'
 CUSTOM_KEYBINDINGS_PATH = '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom{}/'
 CUSTOM_KEYBINDINGS_SCHEMA = MEDIA_KEYS_SCHEMA + '.custom-keybinding:' + CUSTOM_KEYBINDINGS_PATH
 
-# Key names
-KEYBINDING_NAME_KEYNAME = 'name'
-KEYBINDING_COMMAND_KEYNAME = 'command'
-KEYBINDING_BINDING_KEYNAME = 'binding'
+
+class GsettingsKey(Enum):
+	NAME = 'name'
+	COMMAND = 'command'
+	BINDING = 'binding'
+	CUSTOM_KEYBINDINGS = 'custom-keybindings'
 
 
 def get_from_gsettings(schema, key):
-	completed_process = _run_gsettings('get', schema, key)
+	completed_process = _run_gsettings('get', schema, key.value)
 	return completed_process.stdout.decode()
 
 
 def set_in_gsettings(schema, key, value):
-	_run_gsettings('set ', schema, key, value)
+	_run_gsettings('set', schema, key.value, value)
 
 
 def _run_gsettings(*args):
@@ -38,7 +40,7 @@ def _run_gsettings(*args):
 
 
 def get_existing_custom_keybindings():
-	command_result = get_from_gsettings(MEDIA_KEYS_SCHEMA, CUSTOM_KEYBINDINGS_KEY)
+	command_result = get_from_gsettings(MEDIA_KEYS_SCHEMA, GsettingsKey.CUSTOM_KEYBINDINGS)
 	return [] if command_result.startswith('@as []') else ast.literal_eval(command_result)
 
 
@@ -56,14 +58,10 @@ def main():
 
 		custom_keybindings.append(CUSTOM_KEYBINDINGS_PATH.format(index))
 
-		# Set name
-		set_in_gsettings(schema, KEYBINDING_NAME_KEYNAME, binding[KEYBINDING_NAME_KEYNAME])
-		# Set command
-		set_in_gsettings(schema, KEYBINDING_COMMAND_KEYNAME, binding[KEYBINDING_COMMAND_KEYNAME])
-		# Set key binding
-		set_in_gsettings(schema, KEYBINDING_BINDING_KEYNAME, binding[KEYBINDING_BINDING_KEYNAME])
+		for key in (GsettingsKey.NAME, GsettingsKey.COMMAND, GsettingsKey.BINDING):
+			set_in_gsettings(schema, key, binding[key.value])
 
-	set_in_gsettings(MEDIA_KEYS_SCHEMA, CUSTOM_KEYBINDINGS_KEY, str(custom_keybindings))
+	set_in_gsettings(MEDIA_KEYS_SCHEMA, GsettingsKey.CUSTOM_KEYBINDINGS, str(custom_keybindings))
 
 
 if __name__ == '__main__':
