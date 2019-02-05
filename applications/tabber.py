@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-import argparse
 import ast
 import os
 import subprocess
 import sys
+from argparse import ArgumentParser
+
 
 # TODO:
 # - change configuration to JSON
@@ -64,7 +65,7 @@ def build_terminal_command(configuration):
 
 
 def main():
-	args = parse_arguments(argparse.ArgumentParser(description='Launch terminal with multiple tabs'))
+	args = parse_arguments(ArgumentParser(description='Launch terminal with multiple tabs'))
 	configuration_path = resolve_configuration_path(args.config_file)
 	configuration = load_configuration(configuration_path)
 	terminal = build_terminal_command(configuration)

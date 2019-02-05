@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import argparse
 import os
 import sys
+from argparse import ArgumentParser
 
 
 def parse_arguments(parser):
@@ -18,7 +18,7 @@ def print_error(message):
 
 
 def main():
-	args = parse_arguments(argparse.ArgumentParser(description='Create absolute symbolic link to a file'))
+	args = parse_arguments(ArgumentParser(description='Create absolute symbolic link to a file'))
 	source = os.path.abspath(args.source)
 	destination = os.path.abspath(args.destination)
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import argparse
 import datetime
 import time
+from argparse import ArgumentParser
 
 
 def parse_arguments(parser):
@@ -30,7 +30,7 @@ def prepare_timestamp(timestamp, in_millis=False):
 
 
 def main():
-	args = parse_arguments(argparse.ArgumentParser(description='''
+	args = parse_arguments(ArgumentParser(description='''
 		Print current date and/or time related value for given argument. If none of arguments is specified,
 		it will print all values in the same order as they are listed in help.'''))
 
