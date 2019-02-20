@@ -45,8 +45,9 @@ alias psgrep='ps aux | grep'
 # Reload aliases
 alias reload='source ~/.bash_aliases'
 
-# Update and upgrade packages
+# Aliases for package manager
 alias upgrade='sudo apt update && sudo apt upgrade'
+alias cleanup='sudo apt autoclean && sudo apt autoremove'
 
 # Exiting the shorter way
 alias q='exit'
