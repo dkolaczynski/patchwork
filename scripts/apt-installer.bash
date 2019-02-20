@@ -8,10 +8,9 @@ packages="
 	gparted
 	hardinfo
 	htop
-	`# contains inotifywait`
-	inotify-tools
-	`# contains xmllint`
-	libxml2-utils
+	httpie
+	inotify-tools  `# contains inotifywait`
+	libxml2-utils  `# contains xmllint`
 	mc
 	meld
 	shutter
