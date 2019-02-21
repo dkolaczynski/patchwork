@@ -6,8 +6,8 @@ from argparse import ArgumentParser
 from gi.repository import Gio  # PyGObject should be available by default
 
 # TODO
-# - [FEATURE] Option to dump existing custom keybindings: -d dump
-# - [FEATURE] Option for validation of configuration file: -t test
+# - [FEATURE] Option for validation of configuration file: -t test (or validate?)
+# - [FEATURE] Option for specifying input/output file; should not work widh -c: -f
 
 MEDIA_KEYS_SCHEMA = 'org.gnome.settings-daemon.plugins.media-keys'
 CUSTOM_KEYBINDINGS_PATH = '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom{}/'
@@ -22,6 +22,7 @@ def parse_arguments(parser):
 	group.add_argument('-a', '--append', action='store_true', help='TODO')
 	group.add_argument('-o', '--overwrite', action='store_true', help='TODO')
 	group.add_argument('-c', '--clear', action='store_true', help='TODO')
+	group.add_argument('-d', '--dump', action='store_true', help='TODO')
 
 	return parser.parse_args()
 
@@ -35,9 +36,27 @@ def overwrite_bindings():
 	_add_bindings([])
 
 
-def append_settings():
+def append_bindings():
 	existing_bindings = Gio.Settings(MEDIA_KEYS_SCHEMA).get_strv(CUSTOM_KEYBINDINGS_KEY)
 	_add_bindings(existing_bindings)
+
+
+def dump_bindings():
+	existing_bindings = Gio.Settings(MEDIA_KEYS_SCHEMA).get_strv(CUSTOM_KEYBINDINGS_KEY)
+	bindings = []
+
+	for binding in existing_bindings:
+		setting = Gio.Settings(CUSTOM_KEYBINDINGS_SCHEMA, binding)
+		binding = {}
+
+		for key in KEYBINDING_KEYS:
+			binding[key] = setting.get_string(key)
+
+		bindings.append(binding)
+
+	with open('./key-binder-dump.json', 'w') as fp:
+		json.dump(bindings, fp, indent='\t')
+		fp.write('\n')
 
 
 def _add_bindings(existing_bindings):
@@ -75,11 +94,13 @@ def main():
 	args = parse_arguments(ArgumentParser(description="TODO"))
 
 	if args.append:  # TODO make this option a default one
-		append_settings()
+		append_bindings()
 	elif args.overwrite:
 		overwrite_bindings()
 	elif args.clear:
 		clear_settings()
+	elif args.dump:
+		dump_bindings()
 
 
 if __name__ == '__main__':
