@@ -8,5 +8,10 @@
 		"name": "Run gedit",
 		"command": "gedit",
 		"binding": "<Super>G"
+	},
+	{
+		"name": "Open browser (Opera)",
+		"command": "opera",
+		"binding": "<Super>B"
 	}
 ]
