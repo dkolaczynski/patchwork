@@ -5,6 +5,7 @@ packages="
 	gimp
 	git
 	gitk
+	gnome-tweak-tool
 	gparted
 	hardinfo
 	htop
