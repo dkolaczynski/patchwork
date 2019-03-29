@@ -40,7 +40,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias hgrep='history | grep'
 
 # Search in processes
-alias psgrep='ps aux | grep'
+alias psgrep='pgrep -fa'
 
 # Reload aliases
 alias reload='source ~/.bash_aliases'
