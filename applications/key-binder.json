@@ -1,17 +1,22 @@
 [
 	{
-		"name": "Run Calculator",
-		"command": "gnome-calculator",
-		"binding": "<Super>C"
-	},
-	{
-		"name": "Run gedit",
-		"command": "gedit",
-		"binding": "<Super>G"
-	},
-	{
-		"name": "Open browser (Opera)",
+		"name": "Open browser -- Opera",
 		"command": "opera",
-		"binding": "<Super>B"
+		"binding": "<Shift><Super>b"
+	},
+	{
+		"name": "Open Calculator",
+		"command": "gnome-calculator",
+		"binding": "<Shift><Super>c"
+	},
+	{
+		"name": "Open gedit",
+		"command": "gedit",
+		"binding": "<Shift><Super>g"
+	},
+	{
+		"name": "Open blank comparison in Meld",
+		"command": "meld /dev/null /dev/null",
+		"binding": "<Shift><Super>m"
 	}
 ]
