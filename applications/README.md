@@ -2,6 +2,17 @@
 
 A set of programs for various purposes written in Java/Python
 
+## battery-guardian.py
+
+Check battery level and notify if it is too low or too high
+
+It is recommended to add the script to cron (below snippet was checked on Ubuntu 18.04):
+```
+$ (crontab -l; echo "* * * * *  XDG_RUNTIME_DIR=/run/user/$(id -u) {FULL_PATH}/battery-guardian.py") | crontab  
+```
+
+Type `$ ./battery-guardian.py -h` to display full help.
+
 ## now.py
 
 Print current date and/or time related value for given argument.
