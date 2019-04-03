@@ -8,7 +8,7 @@ def parse_arguments(parser):
 
 
 def main():
-	args = parse_arguments(ArgumentParser(description=""))
+	args = parse_arguments(ArgumentParser(description=''))
 
 
 if __name__ == '__main__':
