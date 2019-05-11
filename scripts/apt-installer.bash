@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 packages="
+	build-essential
 	curl
 	gimp
 	git
@@ -14,6 +15,8 @@ packages="
 	libxml2-utils  `# contains xmllint`
 	mc
 	meld
+	python-pip
+	python3-pip
 	shutter
 	tree
 	"
